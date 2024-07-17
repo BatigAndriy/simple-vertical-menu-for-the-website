@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Navigation Menu</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icon Link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container-for-menu">
+
+        <div class="sidenav" id="sidenav">
+            <label for="click" class="click-btn">
+                <i class='menu-btn bx bx-menu' id="open-menu-btn"></i>
+                <i class='close-btn bx bx-x-circle' id="close-menu-btn"></i>
+            </label>
+            <div class="logo">
+                <h2 id="h2_hide_logo">Microcoding</h2>
+            </div>
+
+            <div class="search_bar">
+                <form action="#" class="search-form">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search...">
+                </form>
+            </div>
+
+            <div class="icon_items">
+                <div class="menu_text" id="dev_menu">
+                    <p>Menu</p>
+                </div>
+                <ul>
+                    <li class="active">
+                        <i class='bx bxs-home'></i>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-user-circle'></i>
+                        <a href="#">User</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-message-dots'></i>
+                        <a href="#">Message</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-bar-chart-alt-2'></i>
+                        <a href="#">Activity</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-shopping-bag'></i>
+                        <a href="#">Products</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-bell'></i>
+                        <a href="#">Notification</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-group'></i>
+                        <a href="#">Group</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-help-circle'></i>
+                        <a href="#">Help</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-cog'></i>
+                        <a href="#">Setting</a>
+                    </li>
+                    <li>
+                        <i class='bx bx-log-in'></i>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const openBtn = document.getElementById('open-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const sidenav = document.getElementById('sidenav');
+    const h2_hide = document.getElementById('h2_hide_logo');
+    const dev_menu = document.getElementById('dev_menu');
+    const links = sidenav.querySelectorAll('a');
+    const listItems = sidenav.querySelectorAll('li');
+
+    // Спочатку ховаємо всі посилання
+    links.forEach(link => link.style.display = 'none');
+
+
+    function openMenu() {
+        sidenav.classList.add('open');
+        openBtn.style.display = 'none';
+        closeBtn.style.display = 'block';
+        h2_hide_logo.style.display = 'block';
+        links.forEach(link => link.style.display = '');
+        listItems.forEach(li => li.style.width = '90%');
+        listItems.forEach(li => li.style.justifyContent = 'flex-start');
+        dev_menu.style.justifyContent = 'flex-start';
+         dev_menu.style.marginTop = '0';
+
+    }
+
+    // Функція для закриття меню
+    function closeMenu() {
+        sidenav.classList.remove('open');
+        openBtn.style.display = 'block';
+        closeBtn.style.display = 'none';
+        h2_hide_logo.style.display = 'none';
+        dev_menu.style.justifyContent = 'center';
+        links.forEach(link => link.style.display = 'none');
+        listItems.forEach(li => li.style.width = '80%');
+        listItems.forEach(li => li.style.justifyContent = '');
+
+    }
+
+
+    openBtn.addEventListener('click', openMenu);
+
+
+    closeBtn.addEventListener('click', closeMenu);
+
+
+    closeBtn.style.display = 'none';
+});
+
+
+
+
+
+    </script>
+</body>
+</html>

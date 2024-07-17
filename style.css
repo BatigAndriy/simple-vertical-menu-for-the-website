@@ -1,0 +1,214 @@
+/* Обнулення */
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --body-width: 100%;
+    --n-blocks: 4;
+    --n-cards: 4;
+    --padding-1-rem: 1rem;
+    --margin-1-rem: 1rem;
+    --margin-percen-01: 1%;
+    --padding-percen-01: 1%;
+    --margin-05-rem: 0.5rem;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+html {
+    background: #f9f9f9;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.container-for-menu{
+    width: 9%;
+    min-width: 5em;
+    min-height: 100vh;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.container-for-menu .sidenav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 4.5%;
+    max-width: 3em;
+    min-width: 3em;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    padding: calc(var(--padding-percen-01) * 1) calc(var(--padding-percen-01) / 3);
+    background-color: #000;
+    transition: width 0.6s;
+}
+
+label .close-btn {
+    display: none;
+}
+
+.container-for-menu .logo h2 {
+    font-size: clamp(0.8rem, 1.2vw, 1.12rem);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0.8em;
+    pointer-events: none;
+    transition: 0.3s ease;
+    display: none;
+}
+
+.sidenav .search_bar {
+    margin: 0.8em 0 1em 0;
+    position: relative;
+}
+
+.sidenav .search_bar i {
+    padding: 3%;
+    border-radius: 5px 0 0 5px;
+    background: white;
+    align-self: center;
+    color: #000;
+    font-size: clamp(0.7rem, 0.7vw, 1rem);
+
+}
+
+.sidenav .search_bar input {
+    width: 100%;
+    padding: 3%;
+    padding-left: 1%;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    outline: none;
+    font-size: clamp(0.45rem, 0.45vw, 0.55rem);
+}
+
+.sidenav .menu_text {
+    margin-top: calc(var(--margin-percen-01) * 10);
+    display: flex;
+    justify-content: center;
+}
+
+.sidenav .menu_text p {
+    font-size: clamp(0.65rem, 0.95vw, 1.2rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 0.8em 0 0.8em;
+}
+
+.sidenav .icon_items ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    flex: 0.7 0.7 auto;
+    margin-top: calc(var(--margin-1-rem));
+
+}
+
+.sidenav .icon_items ul li {
+    width: 80%;
+    cursor: pointer;
+    margin: calc(var(--margin-1-rem) / 6) 0;
+    padding: calc(var(--padding-1-rem) / 3.5) 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    flex-grow: 1;
+}
+
+.sidenav .icon_items ul li.active {
+    background: red;
+}
+
+.icon_items .active,
+.sidenav .icon_items ul li:hover {
+    background: #119aaf;
+}
+
+.sidenav .icon_items ul li i {
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    padding: 0 calc(var(--padding-1-rem)/3);
+}
+
+.sidenav .icon_items ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+    padding-left: 18px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.container-for-menu label {
+    left: 3%;
+    font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.sidenav.open {
+    min-width: 9rem;
+    width: 9%;
+}
+
+.sidenav.open .icon_items ul li a {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidenav.open .logo h2 {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidenav.open .search_bar input {
+    width: 100%;
+    margin-left: 0;
+}
+
+
+
+label .close-btn.open {
+    display: block;
+}
+
+label .menu-btn.close {
+    display: none;
+}
+
+
+.search-form {
+    display: flex;
+}
+
+.click-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#close-menu-btn, #open-menu-btn {
+    font-size: clamp(0.8rem, 1.4vw, 1.1rem);
+}
+
+.icon_items {
+    display: flex;
+    flex-direction: column;
+    flex: 0.7 0.7 auto;
+}
+
+#open-menu-btn {
+    padding-bottom: 10%;
+}
